@@ -43,22 +43,19 @@ function xhairs:draw(forceDraw)
 		if (player.health <= 0) then
 			return; end
 	end
-	-- crosshair vars
+
 	local crosshairSize = self.userData.crosshairSize;
-    local crosshairWeight = self.userData.crosshairWeight;
-    local crosshairStrokeWeight = self.userData.crosshairStrokeWeight;
-    local crosshairGap = self.userData.crosshairGap;
-    local dot = self.userData.dot;
-	-- color vars
+   	local crosshairWeight = self.userData.crosshairWeight;
+    	local crosshairStrokeWeight = self.userData.crosshairStrokeWeight;
+    	local crosshairGap = self.userData.crosshairGap;
+    	local dot = self.userData.dot;
 	local crosshairFillColor = self.userData.fill;
-    local crosshairStrokeColor = self.userData.stroke;
-	-- vars
-    local crosshairHalfSize = crosshairSize / 2;
-    local crosshairHalfWeight = crosshairWeight / 2;
+    	local crosshairStrokeColor = self.userData.stroke;
+    	local crosshairHalfSize = crosshairSize / 2;
+    	local crosshairHalfWeight = crosshairWeight / 2;
 
 
-	-- bunch of shit
-
+	-- drawing
     nvgBeginPath();
 	--	seeker xhair
 	-- left bracket
@@ -112,23 +109,19 @@ function xhairs:draw(forceDraw)
 end
 
 function xhairs:drawOptions(x, y, intensity)
-	local optargs = {};
-	optargs.intensity = intensity;
+	local optargs = {
+	intensity = intensity;
+	};
+	local user = self.userData;
+	local sliderWidth = 200;
+	local sliderStart = 140;
 
 	nvgSave();
 	nvgTranslate(x + WIDGET_PROPERTIES_COL_INDENT + 40, y + 40);
 	self:draw(true, x + WIDGET_PROPERTIES_COL_INDENT + 40, y + 40);
 	nvgRestore();
 	y = y + 70;
-
-	-- vars
-	local user = self.userData;
-	local sliderWidth = 200;
-	local sliderStart = 140;
-
-	-- shit
-
-
+	-- checkboxes
 	fillcol = uiCheckBox(fillcol, "Color", x, y);
 	if fillcol then
 		y = y + 30;
@@ -144,9 +137,7 @@ function xhairs:drawOptions(x, y, intensity)
 	end
 	y = y + 30;
 
-	--shit end
-
-
+	--sliderboxes
 	y = y + 60;
 	user.crosshairSize = ui2RowSliderEditBox2Decimals(x, y, WIDGET_PROPERTIES_COL_INDENT, WIDGET_PROPERTIES_COL_WIDTH, 80, "Size", user.crosshairSize, 1, 120, optargs);
 	y = y + 70;
@@ -162,5 +153,5 @@ function xhairs:drawOptions(x, y, intensity)
 end
 
 function xhairs:getOptionsHeight()
-	return 470; -- debug with: ui_menu_show_widget_properties_height 1
+	return 470;
 end
