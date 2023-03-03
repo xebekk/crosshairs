@@ -1,4 +1,4 @@
--- cowboy programmer
+-- 0.02
 require "base/internal/ui/reflexcore"
 xhairs = {
 	canPosition = false;
@@ -62,44 +62,31 @@ function xhairs:draw(forceDraw)
     nvgBeginPath();
 	--	seeker xhair
 	-- left bracket
-	nvgCircle(-9, -8, 1.5);	--top left
-	nvgCircle(-10, -7, 1.5);
-	nvgCircle(-11, -6, 1.5);
-	nvgCircle(-11, -5, 1.5);
-	nvgCircle(-12, -4, 1.5);
-	nvgCircle(-12, -3, 1.5);
-	nvgCircle(-12, -2, 1.5);
-	nvgCircle(-12, -1, 1.5);
-	nvgCircle(-12, 0, 1.5)	-- center bracket
-	nvgCircle(-12, 1, 1.5);
-	nvgCircle(-12, 2, 1.5);
-	nvgCircle(-12, 3, 1.5);
-	nvgCircle(-12, 4, 1.5);
-	nvgCircle(-11, 5, 1.5);
-	nvgCircle(-11, 6, 1.5);
-	nvgCircle(-10, 7, 1.5);
-	nvgCircle(-9, 8, 1.5);	--bottom left
+	-- nvgCircle(-9, -8, 1.5);	--top left
+	-- nvgCircle(-12, 0, 1.5)	-- center bracket
+	-- nvgCircle(-9, 8, 1.5);	--bottom left
 	-- second bracket
-	nvgCircle(9, -8, 1.5);	--top right
-	nvgCircle(10, -7, 1.5);
-	nvgCircle(11, -6, 1.5);
-	nvgCircle(11, -5, 1.5);
-	nvgCircle(12, -4, 1.5);
-	nvgCircle(12, -3, 1.5);
-	nvgCircle(12, -2, 1.5);
-	nvgCircle(12, -1, 1.5);
-	nvgCircle(12, 0, 1.5)	-- center bracket
-	nvgCircle(12, 1, 1.5);
-	nvgCircle(12, 2, 1.5);
-	nvgCircle(12, 3, 1.5);
-	nvgCircle(12, 4, 1.5);
-	nvgCircle(11, 5, 1.5);
-	nvgCircle(11, 6, 1.5);
-	nvgCircle(10, 7, 1.5);
-	nvgCircle(9, 8, 1.5);	--bottom right
+	-- nvgCircle(9, -8, 1.5);	--top right
+	-- nvgCircle(12, 0, 1.5)	-- center bracket
+	-- nvgCircle(9, 8, 1.5);	--bottom right
 	-- center dot
-	nvgCircle(0, 0, 2)
+	-- nvgCircle(0, 0, 2)
 	-- color
+	nvgMoveTo(0, 5);
+	nvgLineTo(0, 16);
+	nvgMoveTo(0, -5);
+	nvgLineTo(0, -16);
+	nvgMoveTo(5, 0);
+	nvgLineTo(16, 0);
+	nvgMoveTo(-5, 0);
+	nvgLineTo(-16, 0);
+	--nvgLineTo(-30, 20);
+	--nvgLineTo(40, 25);
+	--nvgLineTo(-50, 30);
+	--nvgRotate(23);
+	--nvgLineTo(15, 125);
+	-- nvgRoundedRect(-5, 0, 8, 8, 10);
+	-- nvgRoundedRect(x, y, width, height, rounded edge);
 	nvgStrokeColor(crosshairStrokeColor);
     nvgStrokeWidth(crosshairStrokeWeight);
     nvgStroke();
